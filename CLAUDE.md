@@ -14,13 +14,13 @@ covered). Uncovered jurisdictions degrade to `:unknown-jurisdiction` — saisei
 
 ## What this is
 
-The **debtor-initiated** counterpart to [`tate`](../tate/)'s creditor-side
+The **debtor-initiated** counterpart to `tate`'s creditor-side
 `:insolvency` track (tate discloses how to respond when a THIRD PARTY's insolvency
 notice arrives — proof-of-claim, 債権届出; saisei discloses how a member files
 **their own** formal insolvency petition). One leg over the member's OWN declared
 situation:
 
-**申立て支援** (`methods/filing_plan.cljc`) — a member's self-declared jurisdiction
+**申立て支援** (`saisei/methods/filing_plan.cljc`) — a member's self-declared jurisdiction
 classified against the coded procedure registry (`data/procedure-registry.edn`) →
 **ALL** registered procedures for that jurisdiction disclosed as distinct tracks
 (saisei never picks Chapter 7 vs Chapter 13, or 自己破産 vs 個人再生, on the
@@ -93,7 +93,7 @@ planned around.
 ## Layout
 
 ```
-20-actors/saisei/
+com-etzhayyim-saisei/
 ├── CLAUDE.md                      # this file
 ├── README.md
 ├── manifest.edn                   # actor manifest (4 cells, 10 gates, 6 non-goals)
@@ -101,15 +101,15 @@ planned around.
 │   ├── jurisdictions.edn          # jurisdiction registry: UPL anchor + forum + referrals (R0, 4 juris)
 │   ├── procedure-registry.edn     # jurisdiction-keyed procedure registry (7 procs: jp 2 / us 2 / uk 2 / de 1)
 │   └── seed-member-docs.edn       # SYNTHETIC member situations, incl. one uncovered-jurisdiction probe (G1/G10)
-├── methods/                        # clj/bb (.cljc) — kotoba-native
+├── saisei/methods/                # clj/bb (.cljc) — kotoba-native
 │   ├── edn.cljc                    # minimal EDN reader (string-keyed fidelity convention, tate-pattern)
 │   ├── filing_plan.cljc            # classify + build-plan (all tracks disclosed, never ranked — G2)
 │   ├── coverage_report.cljc        # honest jurisdiction coverage + named gaps (G10)
 │   └── datom_emit.cljc             # kotoba Datom-log (EAVT) emitter
-├── tests/                          # clj/bb (.cljc) — bb run_tests.sh (14 tests / 53 assertions)
+├── saisei/tests/                  # clj/bb (.cljc) — bb run_tests.clj
 │   ├── test_filing_plan.cljc
 │   └── test_coverage.cljc
-└── run_tests.sh
+└── run_tests.clj
 ```
 
 Deferred to a follow-up wave (mirrors `amnesty`'s explicit phase deferral):
@@ -121,10 +121,10 @@ IVA (UK, insolvency-practitioner-mediated) referral-only track.
 ## Run
 
 ```bash
-# clj/bb (babashka), run from the repo root (classpath = 20-actors). NOT python.
-bash 20-actors/saisei/run_tests.sh   # full suite: 14 tests / 53 assertions green
+# clj/bb (babashka), run from this repository root. NOT python.
+bb run_tests.clj   # full suite
 
-# ad-hoc, from repo root:
+# ad-hoc, from repository root:
 bb --classpath 20-actors -e '(require (quote [saisei.methods.coverage-report :as c])) (print (c/report (c/coverage)))'
 bb --classpath 20-actors -e '(require (quote [saisei.methods.datom-emit :as d])) (println (count (d/emit)))'
 ```

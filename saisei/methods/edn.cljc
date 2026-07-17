@@ -1,7 +1,7 @@
 (ns saisei.methods.edn
   "saisei 再生 — minimal EDN reader (subset: [] {} :kw \"str\" num bool nil).
 
-  Fidelity invariant (root CLAUDE.md convention, shared with tate/methods/edn.cljc):
+  Fidelity invariant (shared actor convention, aligned with tate):
   keywords are kept as their \":ns/name\" STRINGS, not Clojure keywords, so every
   record is keyed on string keys (\":proc/id\", \":sit/jurisdiction\", …) — the same
   convention the rest of the kotoba-native actor registries use.
@@ -96,9 +96,9 @@
 
 #?(:clj
    (defn here
-     "Directory of this actor's methods/ dir, for default data/ paths."
+     "Standalone repository root, used for default data/ paths."
      []
-     (clojure.java.io/file "20-actors" "saisei")))
+     (clojure.java.io/file ".")))
 
 (defn unblob
   "Reconstitute a datomize-transform blob-string attribute value (a pr-str'd

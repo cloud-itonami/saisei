@@ -1,0 +1,13 @@
+{:schema-version 1
+ :repository "etzhayyim/com-etzhayyim-saisei"
+ :classification :actor
+ :canonical-actor-metadata "manifest.edn"
+ :canonical-data-format :edn
+ :classpath-root "."
+ :dependencies [{:actor "tate" :relationship :creditor-side-counterpart}
+                {:actor "yobel" :relationship :doctrinal-release-sibling}]
+ :consumers [{:repository "etzhayyim/root"
+              :path "50-infra/saisei-worker"
+              :usage #{:cljs-classpath :embedded-edn-data}}]
+ :external-wire-formats #{:http-json}
+ :tests {:command ["bb" "run_tests.clj"]}}
