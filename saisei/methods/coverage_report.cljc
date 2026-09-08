@@ -4,7 +4,7 @@
   Per-jurisdiction procedure counts, the covered/uncovered ratio against the ~193
   UN member states, and a NAMED gap list that doubles as the next-wave ingest
   worklist (tate precedent, ADR-2606112400)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [saisei.methods.edn :as edn]
             [saisei.methods.filing-plan :as plan]))
 
