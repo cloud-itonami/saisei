@@ -6,7 +6,7 @@
   true) — filing plans, computed on READ and never stored as ground state (G2).
 
   House style: ':…' strings stay strings; pure fn + #?(:clj) I/O edge."
-  (:require [kotoba.lang.text :as str]
+  (:require [clojure.string :as str]
             [saisei.methods.filing-plan :as plan]))
 
 (def sit-attrs [":sit/label" ":sit/jurisdiction" ":sit/sourcing"])

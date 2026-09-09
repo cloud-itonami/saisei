@@ -23,7 +23,7 @@
       degrades to :unknown-jurisdiction; saisei never guesses foreign insolvency law.
 
   House style: ':…' strings stay strings; pure fns; I/O at #?(:clj) edges. Portable .cljc."
-  (:require [kotoba.lang.text] [saisei.methods.edn :as edn]))
+  (:require [clojure.string] [saisei.methods.edn :as edn]))
 
 ;; ── default-path loaders (#?(:clj) edge) ──────────────────────────────────
 #?(:clj
@@ -171,6 +171,6 @@
           (conj! L (str "- timeline [" (get tl "label") "]: " (get tl "rule") " (" (get tl "anchor") ")")))
         (doseq [o (get t "options")]
           (conj! L (str "- option: " (get o "label")))))
-      (conj! L (str "- referrals: " (kotoba.lang.text/join ", " (get p "referrals"))))
+      (conj! L (str "- referrals: " (clojure.string/join ", " (get p "referrals"))))
       (conj! L ""))
-    (str (kotoba.lang.text/join "\n" (persistent! L)) "\n")))
+    (str (clojure.string/join "\n" (persistent! L)) "\n")))

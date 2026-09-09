@@ -1,7 +1,7 @@
 (ns saisei.tests.test-coverage
   "saisei 再生 — coverage-report tests (G10, ADR-2607061800). clojure.test."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [kotoba.lang.text :as str]
+            [clojure.string :as str]
             [saisei.methods.coverage-report :as c]))
 
 (deftest test-coverage-counts-4-jurisdictions
