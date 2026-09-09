@@ -1,7 +1,7 @@
 (ns saisei.tests.test-filing-plan
   "saisei 再生 — filing-plan builder tests (ADR-2607061800). clojure.test."
   (:require [clojure.test :refer [deftest is run-tests]]
-            [kotoba.lang.text :as str]
+            [clojure.string :as str]
             [saisei.methods.filing-plan :as p]))
 
 (defn- by-id []

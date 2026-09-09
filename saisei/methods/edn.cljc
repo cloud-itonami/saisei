@@ -7,7 +7,7 @@
   convention the rest of the kotoba-native actor registries use.
 
   Stdlib only (regex tokenizer); file I/O at the #?(:clj) edge."
-  (:require [kotoba.lang.text :as str]))
+  (:require [clojure.string :as str]))
 
 (def ^:private token-re
   #"[\s,]+|;[^\n]*|(\[|\]|\{|\}|\"(?:\\.|[^\"\\])*\"|[^\s,\[\]{}]+)")
