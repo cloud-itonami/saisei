@@ -20,7 +20,7 @@ notice arrives — proof-of-claim, 債権届出; saisei discloses how a member f
 **their own** formal insolvency petition). One leg over the member's OWN declared
 situation:
 
-**申立て支援** (`saisei/methods/filing_plan.cljc`) — a member's self-declared jurisdiction
+**申立て支援** (`saisei/methods/filing_plan.kotoba`) — a member's self-declared jurisdiction
 classified against the coded procedure registry (`data/procedure-registry.edn`) →
 **ALL** registered procedures for that jurisdiction disclosed as distinct tracks
 (saisei never picks Chapter 7 vs Chapter 13, or 自己破産 vs 個人再生, on the
@@ -106,10 +106,10 @@ com-etzhayyim-saisei/
 │   ├── filing_plan.cljc            # classify + build-plan (all tracks disclosed, never ranked — G2)
 │   ├── coverage_report.cljc        # honest jurisdiction coverage + named gaps (G10)
 │   └── datom_emit.cljc             # kotoba Datom-log (EAVT) emitter
-├── saisei/tests/                  # clj/bb (.cljc) — bb run_tests.clj
+├── saisei/tests/                  # clj/bb (.cljc) — bb run_tests.kotoba
 │   ├── test_filing_plan.cljc
 │   └── test_coverage.cljc
-└── run_tests.clj
+└── run_tests.kotoba
 ```
 
 Deferred to a follow-up wave (mirrors `amnesty`'s explicit phase deferral):
@@ -122,7 +122,7 @@ IVA (UK, insolvency-practitioner-mediated) referral-only track.
 
 ```bash
 # clj/bb (babashka), run from this repository root. NOT python.
-bb run_tests.clj   # full suite
+bb run_tests.kotoba   # full suite
 
 # ad-hoc, from repository root:
 bb --classpath 20-actors -e '(require (quote [saisei.methods.coverage-report :as c])) (print (c/report (c/coverage)))'
