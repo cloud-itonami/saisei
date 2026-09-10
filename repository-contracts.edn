@@ -10,4 +10,4 @@
               :path "50-infra/saisei-worker"
               :usage #{:cljs-classpath :embedded-edn-data}}]
  :external-wire-formats #{:http-json}
- :tests {:command ["bb" "run_tests.clj"]}}
+ :tests {:command ["bb" "run_tests.kotoba"]}}
