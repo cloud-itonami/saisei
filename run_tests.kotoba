@@ -1,9 +1,9 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; saisei — bb-native test runner (Clojure / babashka; no shell). ADR-2607061800 + ADR-2606072802.
 ;; Per the repo-wide rule (root CLAUDE.md §"Operational code = clj/bb"): first-party
 ;; tooling is clj/bb, NOT shell. New actors ship run_tests.clj, not run_tests.sh.
 ;;
-;;   bb run_tests.clj      ; run from anywhere
+;;   kbb run_tests.cljk      ; run from anywhere
 (require '[babashka.classpath :as cp]
          '[babashka.fs :as fs]
          '[clojure.test :as t])
