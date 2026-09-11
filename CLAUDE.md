@@ -125,8 +125,8 @@ IVA (UK, insolvency-practitioner-mediated) referral-only track.
 bb run_tests.kotoba   # full suite
 
 # ad-hoc, from repository root:
-bb --classpath 20-actors -e '(require (quote [saisei.methods.coverage-report :as c])) (print (c/report (c/coverage)))'
-bb --classpath 20-actors -e '(require (quote [saisei.methods.datom-emit :as d])) (println (count (d/emit)))'
+kbb --classpath 20-actors -e '(require (quote [saisei.methods.coverage-report :as c])) (print (c/report (c/coverage)))'
+kbb --classpath 20-actors -e '(require (quote [saisei.methods.datom-emit :as d])) (println (count (d/emit)))'
 ```
 
 ## Do not
