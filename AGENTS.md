@@ -94,7 +94,7 @@ planned around.
 
 ```
 com-etzhayyim-saisei/
-├── CLAUDE.md                      # this file
+├── AGENTS.md                      # this file
 ├── README.md
 ├── manifest.edn                   # actor manifest (4 cells, 10 gates, 6 non-goals)
 ├── data/
